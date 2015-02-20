@@ -1,0 +1,21 @@
+<h1>Words</h1>
+
+<h3>Add a word here:</h3>
+
+<form action="/word" method="post">
+
+  <label for="name">Word Name:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add Word</button>
+
+</form>
+
+
+<h3>Here are the words in this dictionary: </h3>
+
+<ul>
+  <% @words.each() do |word| %>
+    <li><a href="/words/<%= word.id() %>"><%= word.name() %></a></li>
+  <% end %>
+</ul>
