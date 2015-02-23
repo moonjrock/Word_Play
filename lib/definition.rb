@@ -8,6 +8,10 @@ class Definition
     @id = @@definitions.length.+(1)
   end
 
+  define_method(:add_definition) do |meaning|
+    @name.push(meaning)
+  end
+
   define_singleton_method(:all) do
     @@definitions
   end
@@ -23,7 +27,7 @@ class Definition
   define_singleton_method(:find) do |id|
     found_definition = nil
     @@definitions.each() do |definition|
-      if definition.id() == identification.to_i()
+      if definition.id() == id.to_i()
         found_definition = definition
       end
     end

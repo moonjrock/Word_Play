@@ -25,10 +25,14 @@ class Word
   define_singleton_method(:find) do |id|
     found_word = nil
     @@words.each() do |word|
-      if word.id(). == identification.to_i()
+      if word.id() == id.to_i()
         found_word = word
       end
     end
     found_word
+  end
+
+  define_method(:add_definition) do |definition|
+    @definition.push(definition)
   end
 end

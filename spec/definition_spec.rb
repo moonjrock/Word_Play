@@ -1,5 +1,4 @@
 require('rspec')
-require('word')
 require('definition')
 
 describe(Definition) do
@@ -10,16 +9,22 @@ describe(Definition) do
   describe("meaning") do
     it("returns the meaning of word") do
       test_definition = Definition.new("used as a greeting")
-      test_definition.save()
-      expect(test_definition.name()).to(eq("used as a greeting"))
+      expect(test_definition.meaning()).to(eq("used as a greeting"))
     end
   end
 
+  describe("id") do
+  it('will return a definition id') do
+    definition = Definition.new({:meaning => "used as a greeting"})
+    expect(definition.id()).to(eq(1))
+  end
+end
+
   describe("save") do
     it ("saves the definition") do
-      test_definition = Definition.new("used as a greeting")
+      test_definition = Definition.new({:meaning => "used as a greeting"})
       test_definition.save()
-      expect(Definition.all()).to(eq(test_definition))
+      expect(Definition.all()).to(eq([test_definition]))
     end
   end
 
@@ -38,11 +43,11 @@ describe(Definition) do
 
   describe(".find") do
     it("returns a definition by its id number") do
-      test_definition = Definition.new("used as a greeting")
+      test_definition = Definition.new({:meaning => "used as a greeting"})
       test_definition.save()
-      test_definition2 = Definition.new("used to express good wishes")
-      test_definition2.save()
-      expect(Definition.find(test_definition.id())).to(eq(test_definition))
+      test_definition2 = Definition.new({:meaning => "used to express good wishes"})
+      test_definition.save2()
+      expect(Definition.find(test_definition.id())).to(eq(1))
     end
   end
 end
