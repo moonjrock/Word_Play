@@ -4,7 +4,7 @@ class Word
   @@words = []
 
   define_method(:initialize) do |attributes|
-    @add_name = attributes.fetch(:add_word)
+    @add_word = attributes.fetch(:add_word)    #There was a typo called add_name instead of add_word
     @definition = []
     @id = @@words.length().+(1)
   end

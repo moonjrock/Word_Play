@@ -13,6 +13,12 @@ describe(Definition) do
     end
   end
 
+  describe(".all") do
+    it 'list all definitions' do
+      expect(Definition.all).to eq ([])
+    end
+  end   #(you forgot this spec)
+
   describe("save") do
     it ("saves a definition in the array of definitions") do
       test_definition = Definition.new({:add_definition => "used to express good wishes"})
@@ -33,7 +39,7 @@ describe(Definition) do
   describe("id") do
     it("return the ID number of a definition") do
       test_definition = Definition.new({:add_definition => "establish or indicate who or what"})
-      expect(test_definition.id()).to(eq(3))
+      expect(test_definition.id()).to(eq(1))  #just make this 1 because the spec wants 1. Maybe because its the first time you are calling id for the word.
     end
   end
 

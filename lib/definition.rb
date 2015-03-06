@@ -17,7 +17,7 @@ class Definition
   end
 
   define_singleton_method(:clear) do
-    @@definition = []
+    @@definitions = []      #you forgot the "s" here
   end
 
   define_singleton_method(:find) do |id|
