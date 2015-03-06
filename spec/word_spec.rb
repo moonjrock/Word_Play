@@ -1,55 +1,49 @@
 require('rspec')
 require('word')
-require('definition')
 
 describe(Word) do
   before() do
     Word.clear()
   end
 
-  describe("name") do
-    it("returns the name of word") do
-      test_word = Word.new({:name => "Hello"})
-      test_word.save()
-      expect(test_word.name()).to(eq("Hello"))
+  describe("add_word") do
+    it("adds a word to the dictionary") do
+      test_word = Word.new({:add_word => "hello"})
+      # test_word.save()
+      expect(test_word.add_word()).to(eq("hello"))
     end
   end
 
   describe("save") do
-    it ("saves the input word") do
-      test_word = Word.new({:name => "Hello"})
+    it ("saves a word in the array of words") do
+      test_word = Word.new({:add_word => "goodbye"})
       test_word.save()
       expect(Word.all()).to(eq([test_word]))
     end
   end
 
-  describe(".all") do
-    it("is empty at first") do
-      expect(Word.all()).to(eq([]))
-    end
-  end
-
   describe(".clear") do
-    it("empties out all the saved words") do
+    it("clears out all the saved words") do
+      test_word = Word.new({:add_word => "gone"})
+      test_word.save()
       Word.clear()
       expect(Word.all()).to(eq([]))
     end
   end
 
-  describe(".find") do
-    it("returns a word by its id number") do
-      test_word = Word.new({:name => "Hello"})
+  describe("id") do
+    it("returns the ID number of a word") do
+      test_word = Word.new({:add_word => "identify"})
       test_word.save()
-      expect(Word.find(test_word.id())).to(eq(test_word))
+      expect(test_word.id()).to(eq(1))
     end
   end
 
-  describe("add_definition") do
-    it("adds a definition to the word") do
-      new_word = Word.new({ :name => "carrot" })
-      new_definition = Definition.new({ :meaning => "orange, long, pointy" })
-      new_word.add_definition(new_definition)
-      expect(new_word.new_definition()).to(eq([new_definition]))
+  describe(".find") do
+    it("returns the word by its ID number") do
+      test_word = Word.new({:add_word => "what"})
+      test_word.save()
+      expect(Word.find(test_word.id())).to(eq(test_word))
     end
   end
 end
