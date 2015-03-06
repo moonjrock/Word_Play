@@ -39,7 +39,7 @@ describe(Definition) do
   describe("id") do
     it("return the ID number of a definition") do
       test_definition = Definition.new({:add_definition => "establish or indicate who or what"})
-      expect(test_definition.id()).to(eq(1))  #just make this 1 because the spec wants 1. Maybe because its the first time you are calling id for the word.
+      expect(test_definition.id()).to(eq(1)) 
     end
   end
 

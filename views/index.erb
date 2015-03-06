@@ -1,20 +1,15 @@
 <h1>Word Play</h1>
 
-<form action="/word" method="post">
+<h3>Add a word here:</h3>
 
+<form action="/words" method="post">
+  <label for='name'>Word:</label>
   <input id="name" name="name" type="text">
-
   <button type="submit">Add Word</button>
-
 </form>
 
-
-<h3>Here are the words in this dictionary: </h3>
-
-<% if @words.any? %>
 <ul>
   <% @words.each() do |word| %>
     <li><a href="/words/<%= word.id() %>"><%= word.add_word() %></a></li>
   <% end %>
 </ul>
-<% end %>
