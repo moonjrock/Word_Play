@@ -1,7 +1,7 @@
-Welcome to Word Play
+<h1>Welcome to Word Play</h1>
 Word Play is your personal dictionary. You will be able to add and save any word, with its definition.
 
-INSTRUCTIONS
+<h2>INSTRUCTIONS</h2>
 
 ~OPEN TERMINAL~ ruby
 
@@ -21,7 +21,7 @@ Click on the word(s) you've just added.
 
 You will be able to add the definition of that word(s).
 
-KNOWN BUGS
+<h2>KNOWN BUGS</h2>
 
 Routing has not been figured out yet. Only the first page is viewable.
 
